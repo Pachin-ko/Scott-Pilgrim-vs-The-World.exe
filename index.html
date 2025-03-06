@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio : Accueil</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="icon.png">
+</head>
+<body>
+    <center>
+    <audio playload="playload" loop="loop" id="bg-music">
+        <source src="Scott Pilgrim Anthem.mp3"></source>
+        <source src="Scott-Pilgrim-Anthem.ogg"></source>
+    </audio>
+
+    <section data-page="home" id="home" class="active">
+        <div class="screen">
+            <br><br><br><br><br><br><br>
+        <a href="#sommaire" data-role="link" onclick="document.getElementById('bg-music').play()"><img id="menu" src="scott-pilgrim-titre.png" alt="scott_pilgrim_vs_the_world.png">
+            <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+            <div class="container">
+            <div class="pixel"><p>PRESS TO PLAY</p></div></a>
+
+        </div>
+    </section>
+
+    <section data-page="sommaire" id="sommaire">
+        <div class="screen"> <br><br>
+            <img src="Scott_pilgrim_logo2.png" alt="scott-pilgrim-2">
+            <br>
+                <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+                <div class="container">
+                <a href="tp.html"><div class="pixel2">TRAVAUX PRATIQUES</div></a>
+                </div>
+    
+                <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+                <div class="container">
+                <a href="missions.html"><div class="pixel2">MISSIONS</div></a>
+                </div>
+    
+                <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+                <div class="container">
+                <a href="certifications.html"><div class="pixel2">CERTIFICATIONS</div></a>
+                </div>
+    
+                <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+                <div class="container">
+                <a href="a_propos.html"><div class="pixel2">A PROPOS</div></a>
+                </div>
+            </div>
+    </section>
+
+    <script>
+       var app = (function(){
+    let pages = [];
+    let links = [];
+    
+    document.addEventListener("DOMContentLoaded", function(){
+        pages = document.querySelectorAll('[data-page]');
+        links = document.querySelectorAll('[data-role="link"]');
+        [].forEach.call(links, function(link){
+            link.addEventListener("click", navigate)
+        });
+    });
+    
+    function navigate(ev){
+        ev.preventDefault();
+        let id = ev.currentTarget.href.split("#")[1];
+        [].forEach.call(pages, function(page){
+           if(page.id ===id){
+               page.classList.add('active');
+           }else{
+               page.classList.remove('active');
+           } 
+        });
+        return false;
+    }
+    return {
+        pages,
+        links,
+        xhr: ajax
+    }
+})();
+
+    </script>
+
+</center>
+</body>
+</html>
